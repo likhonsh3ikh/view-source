@@ -1,129 +1,386 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>View Source - Inspect Websites Easily</title>
-    <!-- Meta Description -->
-    <meta name="description" content="View Source lets you inspect and analyze the source code of any website effortlessly. Get detailed information and cleanly formatted code in seconds.">
-    <meta name="author" content="Likhon Sheikh">
-    <meta name="keywords" content="view source, inspect website, source code viewer, HTML viewer, web developer tools">
-    <!-- Open Graph (OG) Tags -->
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="View Source - Inspect Websites Easily">
-    <meta property="og:description" content="View Source lets you inspect and analyze the source code of any website effortlessly. Get detailed information and cleanly formatted code in seconds.">
-    <meta property="og:url" content="https://likhonsheikh.com/view-source/">
-    <meta property="og:site_name" content="View Source">
-    <meta property="og:image" content="https://likhonsheikh.com/assets/view-source-preview.png">
-    <!-- Twitter Card Tags -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="View Source - Inspect Websites Easily">
-    <meta name="twitter:description" content="View Source lets you inspect and analyze the source code of any website effortlessly. Get detailed information and cleanly formatted code in seconds.">
-    <meta name="twitter:image" content="https://likhonsheikh.com/assets/view-source-preview.png">
-    <meta name="twitter:site" content="@likhonsheikh">
-    <!-- Canonical Link -->
-    <link rel="canonical" href="https://likhonsheikh.com/view-source/">
-    <!-- Favicon -->
-    <link rel="icon" href="/favicon.ico" type="image/x-icon">
-    <!-- Fonts and Styles -->
-    <link rel="stylesheet" href="/meta/type/fira-code/fira-code.css">
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            color: #ccc;
-            background: #222;
-        }
-        * {
-            font-family: 'Fira Code', monospace;
-            font-size: 1em;
-            line-height: 1.2em;
-        }
-        h1 {
-            display: inline;
-            color: #f08d49;
-            font-weight: normal;
-        }
-        h1 a:link,
-        h1 a:visited,
-        h1 a:hover,
-        h1 a:active {
-            color: #f08d49;
-        }
-        small {
-            font-size: 80%;
-            color: #999;
-        }
-        header, footer {
-            margin: 1em;
-        }
-        .group {
-            display: flex;
-            align-items: center;
-            flex-direction: row;
-        }
-        form label {
-            flex: none;
-            display: block;
-            padding-right: .5em;
-            margin: 0;
-            line-height: 1.5em !important;
-        }
-        form input {
-            flex: 1 1 auto;
-            display: block;
-            margin: 0;
-            padding: .3em .5em;
-            outline-width: 0;
-            border-radius: 0;
-            border: 1px solid #999;
-            -webkit-appearance: none;
-            line-height: 1.5em !important;
-            background: #222;
-            color: #ccc;
-        }
-        input:focus,
-        select:focus,
-        textarea:focus,
-        button:focus {
-            outline: none;
-        }
-        a:link,
-        a:visited,
-        a:hover,
-        a:active {
-            color: #7ec699;
-        }
-    </style>
+<title>View Source</title>
+<meta charset="utf-8">
+<meta property="og:title" content="View Source">
+<meta property="og:description" content="View source anywhere.">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<style>
+@import url('/meta/type/fira-code/fira-code.css');
+body {
+	margin: 0;
+	padding: 0;
+	color: #ccc;
+	background: #222;
+}
+
+* {
+	font-family: 'Fira Code', monospace;
+	font-size: 1em;
+	line-height: 1.2em;
+}
+
+h1 {
+	display: inline;
+	color: #f08d49;
+	font-weight: normal;
+}
+
+h1 a:link,
+h1 a:visited,
+h1 a:hover,
+h1 a:active {
+	color: #f08d49;
+}
+
+small {
+	font-size: 80%;
+	color: #999;
+}
+
+header, footer {
+	margin: 1em;
+}
+
+.group {
+	display: flex;
+	align-items: center;
+	flex-direction: row;
+}
+
+form label {
+	flex: none;
+	display: block;
+	padding-right: .5em;
+	margin: 0;
+	line-height: 1.5em !important;
+}
+
+form input {
+	flex: 1 1 auto;
+	display: block;
+	margin: 0;
+	padding: .3em .5em;
+	outline-width: 0;
+	border-radius: 0;
+	border: 1px solid #999;
+	-webkit-appearance: none;
+	line-height: 1.5em !important;
+	background: #222;
+	color: #ccc;
+}
+
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+	outline: none;
+}
+
+a:link,
+a:visited,
+a:hover,
+a:active {
+	color: #7ec699;
+}
+</style>
 </head>
 <body>
-    <header>
-        <nav>
-            <h1><a href="/view-source/">View Source</a></h1> &#183; <a href="/view-source/?url=about">About</a> &#183; <a href="/view-source/?url=changelog">Changelog</a>
-        </nav>
-        <form action="/view-source/" method="post">
-            <p class="group">
-                <label for="url">URL:</label>
-                <input id="url" type="text" name="url" value="https://example.com" autocomplete="off" autocorrect="off" placeholder="https://example.com/">
-            </p>
-        </form>
-        <p>
-            <small>
-                Fetched 1.23 KB in 0.363943 seconds<br>
-                <a href="/view-source/?preferences=[nowrap,notidy]&url=https://example.com">Don’t wrap lines</a> &#183;
-                <a href="/view-source/?preferences=[nowrap,tidy]&url=https://example.com">Tidy markup</a>
-            </small>
-        </p>
-    </header>
-    <pre id="source" class="line-numbers" style="white-space: pre-wrap; word-wrap: break-word;">
-        <code class="language-html">
-            <!-- Example source code output goes here -->
-        </code>
-    </pre>
-    <script src="https://neatnik.net/view-source/prism.js"></script>
-    <footer>
-        <p>View Source was made with <span style="color: #e2777a;">&lt;3</span> by <a href="https://likhonsheikh.com">Likhon Sheikh</a>.</p>
-    </footer>
+
+<header>
+
+<nav>
+<h1><a href="/view-source/">View Source</a></h1> &#183; <a href="/view-source/?url=about">About</a> &#183; <a href="/view-source/?url=changelog">Changelog</a>
+</nav>
+
+<form action="/view-source/" method="post">
+<p class="group"><label for="url">URL:</label> <input id="url" type="text" name="url" value="https://example.com" autocomplete="off" autocorrect="off" placeholder="https://example.com/"></p>
+</form>
+
+
+<p><small>Fetched 1.23 KB in 0.361377 seconds<br><a href="/view-source/?preferences=[nowrap,notidy]&url=https://example.com">Don’t wrap lines</a> &#183; <a href="/view-source/?preferences=[nowrap,tidy]&url=https://example.com">Tidy markup</a></small></p>
+
+</header>
+
+
+
+<pre id="source" class="line-numbers" style="white-space: pre-wrap; word-wrap: break-word;"><code class="language-html">&lt;!doctype html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;title&gt;Example Domain&lt;/title&gt;
+
+    &lt;meta charset=&quot;utf-8&quot; /&gt;
+    &lt;meta http-equiv=&quot;Content-type&quot; content=&quot;text/html; charset=utf-8&quot; /&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot; /&gt;
+    &lt;style type=&quot;text/css&quot;&gt;
+    body {
+        background-color: #f0f0f2;
+        margin: 0;
+        padding: 0;
+        font-family: -apple-system, system-ui, BlinkMacSystemFont, &quot;Segoe UI&quot;, &quot;Open Sans&quot;, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif;
+        
+    }
+    div {
+        width: 600px;
+        margin: 5em auto;
+        padding: 2em;
+        background-color: #fdfdff;
+        border-radius: 0.5em;
+        box-shadow: 2px 3px 7px 2px rgba(0,0,0,0.02);
+    }
+    a:link, a:visited {
+        color: #38488f;
+        text-decoration: none;
+    }
+    @media (max-width: 700px) {
+        div {
+            margin: 0 auto;
+            width: auto;
+        }
+    }
+    &lt;/style&gt;    
+&lt;/head&gt;
+
+&lt;body&gt;
+&lt;div&gt;
+    &lt;h1&gt;Example Domain&lt;/h1&gt;
+    &lt;p&gt;This domain is for use in illustrative examples in documents. You may use this
+    domain in literature without prior coordination or asking for permission.&lt;/p&gt;
+    &lt;p&gt;&lt;a href=&quot;https://www.iana.org/domains/example&quot;&gt;More information...&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+
+
+<style>
+/* PrismJS 1.14.0
+http://prismjs.com/download.html#themes=prism-tomorrow&languages=markup+css+clike+javascript+markdown&plugins=line-numbers */
+/**
+ * prism.js tomorrow night eighties for JavaScript, CoffeeScript, CSS and HTML
+ * Based on https://github.com/chriskempson/tomorrow-theme
+ * @author Rose Pritchard
+ */
+
+code[class*="language-"],
+pre[class*="language-"] {
+	color: #ccc;
+	background: none;
+	/*font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;*/
+	text-align: left;
+	white-space: pre;
+	
+	/*
+	word-spacing: normal;
+	word-break: normal;
+	word-wrap: normal;
+	*/
+	
+	-moz-tab-size: 4;
+	-o-tab-size: 4;
+	tab-size: 4;
+
+	-webkit-hyphens: none;
+	-moz-hyphens: none;
+	-ms-hyphens: none;
+	hyphens: none;
+
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+	padding: 1em;
+	margin: .5em 0;
+	overflow: auto;
+}
+
+:not(pre) > code[class*="language-"],
+pre[class*="language-"] {
+	background: #2d2d2d;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+	padding: .1em;
+	border-radius: .3em;
+	white-space: normal;
+}
+
+.token.comment,
+.token.block-comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+	color: #999;
+}
+
+.token.punctuation {
+	color: #ccc;
+}
+
+.token.tag,
+.token.attr-name,
+.token.namespace,
+.token.deleted {
+	color: #e2777a;
+}
+
+.token.function-name {
+	color: #6196cc;
+}
+
+.token.boolean,
+.token.number,
+.token.function {
+	color: #f08d49;
+}
+
+.token.property,
+.token.class-name,
+.token.constant,
+.token.symbol {
+	color: #f8c555;
+}
+
+.token.selector,
+.token.important,
+.token.atrule,
+.token.keyword,
+.token.builtin {
+	color: #cc99cd;
+}
+
+.token.string,
+.token.char,
+.token.attr-value,
+.token.regex,
+.token.variable {
+	color: #7ec699;
+}
+
+.token.operator,
+.token.entity,
+.token.url {
+	color: #67cdcc;
+}
+
+.token.important,
+.token.bold {
+	font-weight: bold;
+}
+.token.italic {
+	font-style: italic;
+}
+
+.token.entity {
+	cursor: help;
+}
+
+.token.inserted {
+	color: green;
+}
+
+pre.line-numbers {
+	position: relative;
+	padding-left: 3.8em;
+	counter-reset: linenumber;
+}
+
+pre.line-numbers > code {
+	position: relative;
+    white-space: inherit;
+}
+
+.line-numbers .line-numbers-rows {
+	position: absolute;
+	pointer-events: none;
+	top: 0;
+	font-size: 100%;
+	left: -3.8em;
+	width: 3em; /* works for line-numbers below 1000 lines */
+	letter-spacing: -1px;
+	border-right: 1px solid #999;
+
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+.line-numbers-rows > span {
+	pointer-events: none;
+	display: block;
+	counter-increment: linenumber;
+}
+
+.line-numbers-rows > span:before {
+	content: counter(linenumber);
+	color: #999;
+	display: block;
+	padding-right: 0.8em;
+	text-align: right;
+}
+
+.line-highlight {
+	position: absolute;
+	left: 0;
+	right: 0;
+	padding: inherit 0;
+	margin-top: 1em; /* Same as .prism’s padding-top */
+
+	background: hsla(24, 20%, 50%,.08);
+	background: linear-gradient(to right, hsla(24, 20%, 50%,.1) 70%, hsla(24, 20%, 50%,0));
+
+	pointer-events: none;
+
+	line-height: inherit;
+	white-space: pre;
+}
+
+@media print {
+	.line-highlight {
+		/*
+		 * This will prevent browsers from replacing the background color with white.
+		 * It's necessary because the element is layered on top of the displayed code.
+		 */
+		-webkit-print-color-adjust: exact;
+		color-adjust: exact;
+	}
+}
+
+.line-highlight:before,
+.line-highlight[data-end]:after {
+	content: attr(data-start);
+	position: absolute;
+	top: .4em;
+	left: .6em;
+	min-width: 1em;
+	padding: 0 .5em;
+	background-color: hsla(24, 20%, 50%,.4);
+	color: hsl(24, 20%, 95%);
+	font: bold 65%/1.5 sans-serif;
+	text-align: center;
+	vertical-align: .3em;
+	border-radius: 999px;
+	text-shadow: none;
+	box-shadow: 0 1px white;
+}
+
+.line-highlight[data-end]:after {
+	content: attr(data-end);
+	top: auto;
+	bottom: .4em;
+}
+
+</style>
+
+<script src="https://neatnik.net/view-source/prism.js"></script>
+
+<footer>
+<p>View Source was made with <span style="color: #e2777a;">&lt;3</span> by <a href="https://neatnik.net/">Neatnik</a>.</p>
+</footer>
+
 </body>
 </html>
